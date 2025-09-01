@@ -86,7 +86,18 @@ numButton.forEach((num) => {
 const signButton = document.querySelectorAll(".sign");
 signButton.forEach((sign) => {
     sign.addEventListener("click", (e) => {
-        appendDisplay(` ${e.target.textContent} `);
+        let signExist = false;
+        const signs = ["+", "-", "*", "/"];
+        signs.forEach(sign => {
+            if (display.textContent.includes(sign)) {
+                signExist = true;
+                return;
+            }
+        });
+
+        if (!signExist) {
+            appendDisplay(` ${e.target.textContent} `);
+        }
     });
 });
 
